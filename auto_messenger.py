@@ -49,58 +49,6 @@ def last_message_sent(data,contact_name):
 with open('data.json', 'r') as file:
     data = json.load(file)
 
-
-# Example usage:
-# if __name__ == "__main__":
-#     contact_name = input("Enter the contact name (Ramesh/Roshini/Bharath): ").capitalize()
-#     if contact_name == "Ramesh":
-#         system_msg = "You are Roopesh, the Manager at ojasa Mirai, a online gen AI training company. You will respond to incoming messages in short and to the point when candidates approaches you for GenAI."
-#         user_msg =" Hi Roopesh, I am beginner, how long does it take to learn GenAI completely including architecture."
-
-#     elif contact_name == "Roshini":
-#         system_msg = "You are Roopesh, The colleague of Roshini who is a Software Engineer at ojasa Mirai, a online gen AI training company. You will respond to incoming messages in short and to the point when candidates approaches you for a query."
-#         user_msg = " Hi Roopesh, I am an issue in the user interface, can you help me out, by highlighting the areas need for correction by priority of testing."
-
-#     elif contact_name == "Bharath":
-#         system_msg = "You are a Roopesh a dear friend of Bharath whom you know since your hgh school days. You will respond as you are suggesting an solution if he asks for advice or listen and respond as a best friend should."
-#         user_msg = "Hi Roopesh how is your day, do you have some free time this weekend to catch up."
-
-#     else:
-#         system_msg = "You are Roopesh, an software Engineer,a unknown person messaged regarding something, respond to these messages in short and to the point"
-#         user_msg =" Hi Roopesh , how are you, long time no see, how is your life now, what are you doing these days."
-
-
-
-    # if __name__ == "__main__":
-    #     contact_name = input("Enter the contact name (Ramesh/Roshini/Bharath): ").capitalize()
-    #     if contact_name == "Ramesh":
-    #         system_msg = "You are Roopesh, the Manager at ojasa Mirai, a online gen AI training company. You will respond to incoming messages in short and to the point when candidates approaches you for GenAI."
-    #         user_msg = last_message(data, contact_name)
-    #         if last_message_sent(data, contact_name) == "Ramesh":
-    #             print("No new message from Ramesh.")
-    #             exit()
-        
-    #     elif contact_name == "Roshini":
-    #         system_msg = "You are Roopesh, The colleague of Roshini who is a Software Engineer at ojasa Mirai, a online gen AI training company. You will respond to incoming messages in short and to the point when candidates approaches you for a query."
-    #         user_msg = last_message(data, contact_name)
-    #         if last_message_sent(data, contact_name) == "Roshini":
-    #             print("No new message from Roshini.")
-    #             exit()
-
-    #     elif contact_name == "Bharath":
-    #         system_msg = "You are a Roopesh a dear friend of Bharath whom you know since your hgh school days. You will respond as you are suggesting an solution if he asks for advice or listen and respond as a best friend should."
-    #         user_msg = last_message(data, contact_name)
-    #         if last_message_sent(data, contact_name) == "Bharath":
-    #             print("No new message from Bharath.")
-    #             exit()
-    # try:
-    #         content = get_perplexity_response(system_msg, user_msg)
-    #         print("Model Response:", content)
-    # except requests.exceptions.RequestException as e:
-    #         print("Error calling Perplexity API:", e)
-
-
-
 def read_conversations():
     with open('data.json', 'r') as file:
         reader = json.load(file)
@@ -115,33 +63,6 @@ def read_conversations():
                 print(f"{dt}:\t{sender}\t:{text}")
             print("\n")
     print("================================================================")
-
-
-# def add_conversations():
-#     with open('data.json', 'r') as f:
-#         reader = json.load(f)
-#         contacts = reader.get('contacts', {})
-#         conversations = reader.get('conversations', {})
-#         dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-#         from_= input("Enter from whom this message is (Ramesh/Roshini/Bharath/Roopesh): ").capitalize()
-#         message = input("Enter the message: ")
-#         new_msg= {"datetime": dt, "sender": from_, "text": message}
-#         to_= input("Enter to whom this message is (Ramesh/Roshini/Bharath/Roopesh): ").capitalize()
-#         if from_ == to_:
-#             print("From and To cannot be the same.")
-#             return
-#         if from_ not in contacts[0]  or to_ not in contacts[0]:
-#             print("Invalid contact name. Please enter a valid contact.")
-#             return
-#         if to_ in conversations:
-#             conversations[to_].append(new_msg)
-#         else:
-#             print(f"Contact doesn't exist with {to_}")
-#         with open('data.json', 'a') as file:
-#             json.dump(reader, file, indent=4)
-#         print(f"Message added to  {to_}'s conversation successfully.")
-
-# add_conversations()
 
 
 def add_conversations(contact_name):
@@ -207,4 +128,5 @@ while quit:
         quit = False
         print("======================Exiting the program. Goodbye!========================")
     else:
+
         print("Invalid choice. Please try again.")
