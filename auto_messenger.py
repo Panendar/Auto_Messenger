@@ -113,9 +113,9 @@ def respond_to_last_message():
 
 
 print("======================Auto_Response function========================")
-print("Enter your Choice: \n1.View Existing Conversations\n2.Add New Conversation\n3.Respond to Last Message\n4.Quit")
 quit = True
 while quit:
+    print("Enter your Choice: \n1.View Existing Conversations\n2.Add New Conversation\n3.Respond to Last Message\n4.Quit")
     choice = input("Choice: ")
     if choice == '1':
         read_conversations()
@@ -130,3 +130,4 @@ while quit:
     else:
 
         print("Invalid choice. Please try again.")
+
